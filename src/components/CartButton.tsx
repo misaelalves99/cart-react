@@ -1,14 +1,15 @@
 // src/components/CartButton.tsx
 
 import React from 'react';
-import { useCart } from '../context/CartContext';
+import { useCart } from '../context/useCart'; // <-- Caminho corrigido
 import { FaShoppingCart } from 'react-icons/fa';
+import type { CartItem } from '../types/cart';
 import styles from './CartButton.module.css';
 
 const CartButton: React.FC = () => {
   const { cartItems } = useCart();
 
-  const itemCount = cartItems.reduce((acc: number, item) => acc + item.quantity, 0);
+  const itemCount = cartItems.reduce((acc: number, item: CartItem) => acc + item.quantity, 0);
 
   return (
     <button className={styles.cartButton}>
