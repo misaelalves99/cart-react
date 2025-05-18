@@ -1,19 +1,16 @@
 // src/components/CurrencyConverter.tsx
 
 import React, { useState } from 'react';
-import styles from './CurrencyConverter.module.css'; // ✅ Importando o CSS module
+import styles from './CurrencyConverter.module.css';
 
-// 07-Props e Router -
 interface CurrencyConverterProps {
   amount: number;
   exchangeRate: number;
 }
 
 const CurrencyConverter: React.FC<CurrencyConverterProps> = ({ amount, exchangeRate }) => {
-  // 06-Hooks -
   const [convertedAmount, setConvertedAmount] = useState(amount * exchangeRate);
 
-  // 02-Funções e Métodos -
   const handleConversion = () => {
     setConvertedAmount(amount * exchangeRate);
   };
@@ -36,7 +33,3 @@ const CurrencyConverter: React.FC<CurrencyConverterProps> = ({ amount, exchangeR
 };
 
 export default CurrencyConverter;
-
-// 02-Funções e Métodos -
-// 06-Hooks -
-// 07-Props e Router -

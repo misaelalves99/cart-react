@@ -1,16 +1,16 @@
 // src/components/Navbar.tsx
 
 import React, { useEffect, useState } from "react";
-import { Link, useLocation } from "react-router-dom"; // Substituindo Next.js
+import { Link, useLocation } from "react-router-dom";
 import styles from "./Navbar.module.css";
-import CartButton from "./CartButton"; // ✅ Botão do carrinho
+import CartButton from "./CartButton";
 
 const Navbar: React.FC = () => {
-  const location = useLocation(); // Para obter a URL atual
+  const location = useLocation();
   const [currentPath, setCurrentPath] = useState("");
 
   useEffect(() => {
-    setCurrentPath(location.pathname); // Atualiza o path atual
+    setCurrentPath(location.pathname);
   }, [location]);
 
   return (
@@ -33,8 +33,6 @@ const Navbar: React.FC = () => {
           >
             Produtos
           </Link>
-
-          {/* ✅ Carrinho com contador */}
           <Link to="/cart" className={styles.link}>
             <CartButton />
           </Link>

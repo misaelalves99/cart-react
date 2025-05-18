@@ -8,7 +8,7 @@ import { useCart } from "../context/CartContext";
 import { useProduct } from "../context/ProductContext";
 import styles from "./ProductList.module.css";
 import { CartItem } from "../types/cart";
-import { getProducts } from "../lib/api/products"; // ✅ Importando a função mock
+import { getProducts } from "../lib/api/products";
 
 interface ProductListProps {
   products?: Product[];
@@ -40,7 +40,7 @@ const ProductList: React.FC<ProductListProps> = ({ products }) => {
     const load = async () => {
       try {
         if (products && products.length) {
-          setContextProducts(products); // sincroniza com o contexto
+          setContextProducts(products);
         } else {
           const baseProducts = await getProducts();
           setContextProducts(baseProducts);

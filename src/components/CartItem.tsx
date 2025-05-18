@@ -3,7 +3,6 @@
 import React from 'react';
 import styles from './CartItem.module.css';
 
-// 01-Estruturas e Tratamento - Estrutura de dados do item do carrinho
 type CartItemType = {
   id: string | number;
   name: string;
@@ -15,7 +14,7 @@ type CartItemType = {
 
 interface CartItemProps {
   item: CartItemType;
-  onRemoveItem: (productId: number) => void; // 02-Funções e Métodos - Função de remoção do item do carrinho
+  onRemoveItem: (productId: number) => void;
 }
 
 const CartItem: React.FC<CartItemProps> = ({ item, onRemoveItem }) => {
@@ -23,7 +22,6 @@ const CartItem: React.FC<CartItemProps> = ({ item, onRemoveItem }) => {
 
   const totalPrice = item.price * item.quantity;
 
-  // 05-Formulários e Eventos - Manipulação de eventos de clique para remover o item
   const handleRemoveClick = () => {
     const productId = typeof item.id === 'string' ? parseInt(item.id, 10) : item.id;
     onRemoveItem(productId);
@@ -50,10 +48,4 @@ const CartItem: React.FC<CartItemProps> = ({ item, onRemoveItem }) => {
   );
 };
 
-// 07-Props e Router - Propriedades passadas para o componente
 export default CartItem;
-
-// 01-Estruturas e Tratamento - Estrutura de dados do item do carrinho
-// 02-Funções e Métodos - Função de remoção do item do carrinho
-// 05-Formulários e Eventos - Manipulação de eventos de clique para remover o item
-// 07-Props e Router - Propriedades passadas para o componente

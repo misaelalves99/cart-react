@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { Order } from '../types/order';
-import styles from './OrderCard.module.css'; // ✅ CSS Modules
+import styles from './OrderCard.module.css';
 
 interface OrderCardProps {
   order: Order;

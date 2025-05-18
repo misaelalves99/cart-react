@@ -2,7 +2,6 @@
 
 import type { Product } from '../../types/product';
 
-// Lista mock de produtos
 const products: Product[] = [
   {
     id: 1,
@@ -46,9 +45,8 @@ const products: Product[] = [
   },
 ];
 
-// Simula uma chamada async (como se fosse uma API)
 export async function getProducts(): Promise<Product[]> {
   return new Promise((resolve) => {
-    setTimeout(() => resolve(products), 300); // Delay para simular carregamento
+    setTimeout(() => resolve(products), 300);
   });
 }

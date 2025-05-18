@@ -1,14 +1,14 @@
 // src/pages/CartPage.tsx
 
 import React from "react";
-import { useCart } from "../context/CartContext"; // 06-Hooks - Contexto para gerenciamento do carrinho
-import CartItem from "../components/CartItem"; // 03-Arrays - Componente CartItem para exibição de itens do carrinho
-import styles from "./CartPage.module.css"; // Estilização com CSS Module
+import { useCart } from "../context/CartContext";
+import CartItem from "../components/CartItem";
+import styles from "./CartPage.module.css";
 import { CartItem as CartItemType } from "../types/cart";
-import { useNavigate } from "react-router-dom"; // Para navegação programática
+import { useNavigate } from "react-router-dom";
 
 const CartPage: React.FC = () => {
-  const { cartItems, removeFromCart, clearCart } = useCart(); // Hook do contexto
+  const { cartItems, removeFromCart, clearCart } = useCart();
   const navigate = useNavigate();
 
   const handleCheckout = () => {

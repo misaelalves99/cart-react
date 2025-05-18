@@ -1,8 +1,8 @@
 // src/pages/ProductsPage.tsx
 
 import { useEffect, useState } from "react";
-import { Product } from "../types/product"; // Ajuste o caminho conforme a estrutura real do seu projeto
-import { getProducts } from "../lib/api/products"; // Função para buscar produtos
+import { Product } from "../types/product";
+import { getProducts } from "../lib/api/products";
 import { useProduct } from "../context/ProductContext";
 import ProductList from "../components/ProductList";
 import styles from "./ProductsPage.module.css";

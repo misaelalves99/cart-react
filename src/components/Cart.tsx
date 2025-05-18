@@ -1,7 +1,7 @@
 // src/components/Cart.tsx
 
 import React from 'react';
-import { useCart } from '../context/CartContext'; // Importa o contexto do carrinho
+import { useCart } from '../context/CartContext';
 import styles from './Cart.module.css';
 import CurrencyConverter from './CurrencyConverter';
 import CartItem from './CartItem';
