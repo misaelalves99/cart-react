@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { Product } from "../types/product";
 import ProductCard from "./ProductCard";
 import { useCart } from "../context/CartContext";
-import { useProduct } from "../context/ProductContext";
+import { useProduct } from "../context/useProduct";
 import styles from "./ProductList.module.css";
 import { CartItem } from "../types/cart";
 import { getProducts } from "../lib/api/products";

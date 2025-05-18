@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import { Product } from "../types/product";
 import { getProducts } from "../lib/api/products";
-import { useProduct } from "../context/ProductContext";
+import { useProduct } from "../context/useProduct";
 import ProductList from "../components/ProductList";
 import styles from "./ProductsPage.module.css";
 
@@ -28,7 +28,7 @@ const ProductsPage: React.FC = () => {
     };
 
     load();
-  }, []);
+  }, [setContextProducts]);
 
   return (
     <div className={styles.container}>
