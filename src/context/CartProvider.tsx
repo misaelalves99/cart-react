@@ -1,10 +1,11 @@
-// app/context/CartContext.tsx
+// app/context/CartProvider.tsx
 
 'use client';
 
-import React, { createContext, useReducer, useContext, ReactNode } from 'react';
+import { useReducer, ReactNode } from 'react';
 import { Product } from '../types/product';
 import { CartItem } from '../types/cart';
+import { CartContext } from './CartContext';
 
 interface CartState {
   items: CartItem[];
@@ -30,11 +31,7 @@ const cartReducer = (state: CartState, action: CartAction): CartState => {
           )
         : [...state.items, action.item];
 
-      const totalAmount = updatedItems.reduce(
-        (acc, i) => acc + i.price * i.quantity,
-        0
-      );
-
+      const totalAmount = updatedItems.reduce((acc, i) => acc + i.price * i.quantity, 0);
       return { items: updatedItems, totalAmount };
     }
 
@@ -44,12 +41,7 @@ const cartReducer = (state: CartState, action: CartAction): CartState => {
           ? { ...i, quantity: i.quantity + 1 }
           : i
       );
-
-      const totalAmount = updatedItems.reduce(
-        (acc, i) => acc + i.price * i.quantity,
-        0
-      );
-
+      const totalAmount = updatedItems.reduce((acc, i) => acc + i.price * i.quantity, 0);
       return { items: updatedItems, totalAmount };
     }
 
@@ -59,21 +51,13 @@ const cartReducer = (state: CartState, action: CartAction): CartState => {
           ? { ...i, quantity: i.quantity - 1 }
           : i
       );
-
-      const totalAmount = updatedItems.reduce(
-        (acc, i) => acc + i.price * i.quantity,
-        0
-      );
-
+      const totalAmount = updatedItems.reduce((acc, i) => acc + i.price * i.quantity, 0);
       return { items: updatedItems, totalAmount };
     }
 
     case 'REMOVE_ITEM': {
       const updatedItems = state.items.filter(i => i.productId !== action.productId);
-      const totalAmount = updatedItems.reduce(
-        (acc, i) => acc + i.price * i.quantity,
-        0
-      );
+      const totalAmount = updatedItems.reduce((acc, i) => acc + i.price * i.quantity, 0);
       return { items: updatedItems, totalAmount };
     }
 
@@ -83,26 +67,6 @@ const cartReducer = (state: CartState, action: CartAction): CartState => {
     default:
       return state;
   }
-};
-
-interface CartContextType {
-  cartItems: CartItem[];
-  addToCart: (item: CartItem) => void;
-  incrementFromCart: (product: Product) => void;
-  decrementFromCart: (productId: string | number) => void;
-  removeFromCart: (productId: string | number) => void;
-  clearCart: () => void;
-  cartTotal: number;
-}
-
-const CartContext = createContext<CartContextType | undefined>(undefined);
-
-export const useCart = (): CartContextType => {
-  const context = useContext(CartContext);
-  if (!context) {
-    throw new Error('useCart must be used within a CartProvider');
-  }
-  return context;
 };
 
 const initialState: CartState = {
@@ -151,5 +115,3 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
     </CartContext.Provider>
   );
 };
-
-export { CartContext };

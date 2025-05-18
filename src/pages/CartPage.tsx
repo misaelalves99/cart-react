@@ -1,7 +1,7 @@
 // src/pages/CartPage.tsx
 
 import React from "react";
-import { useCart } from "../context/CartContext";
+import { useCart } from "../context/useCart";
 import CartItem from "../components/CartItem";
 import styles from "./CartPage.module.css";
 import { CartItem as CartItemType } from "../types/cart";

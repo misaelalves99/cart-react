@@ -1,7 +1,7 @@
 // src/components/CartTotal.tsx
 
 import React from 'react';
-import { useCart } from '../context/CartContext';
+import { useCart } from '../context/useCart';
 import styles from './CartTotal.module.css';
 
 const CartTotal: React.FC = () => {
